@@ -1,5 +1,6 @@
 package com.example.eamobiles.di
 
+import com.example.eamobiles.data.local.TeamService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RemoteModule {
-    private const val API_BASE_URL ="";
+    private const val API_BASE_URL ="https://api.pandascore.co/tournaments/2400/teams?token=jGhCbVNlvEPNoT5DUWhUD2faknOSdqJOJZ2_3oGtwkzFX09J684";
 
     @Provides
     @Singleton
@@ -22,9 +23,9 @@ object RemoteModule {
             .build()
     }
 
-    //TODO  @Provides
-    //    @Singleton
-    //    fun provideHeroService(retrofit: Retrofit): HeroService {
-    //        return retrofit.create(HeroService::class.java)
-    //    }
+     @Provides
+     @Singleton
+    fun provideTeamService(retrofit: Retrofit): TeamService {
+        return retrofit.create(TeamService::class.java)
+    }
 }
