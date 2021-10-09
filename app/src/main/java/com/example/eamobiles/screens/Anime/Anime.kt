@@ -30,9 +30,9 @@ import com.example.eamobiles.data.model.Anime
 fun Animes(animeViewModel: AnimeViewModel) {
     
     Scaffold() {
-        Column() {
+
          AnimeList(animeViewModel)
-        }
+
     }
 
 }
@@ -102,7 +102,8 @@ fun AnimeImage(anime: Anime) {
     Image(
         painter = rememberImagePainter(anime.animeImg),
         contentDescription =  null,
-        modifier = Modifier.size(92.dp)
+        modifier = Modifier
+            .size(92.dp)
             .clip(shape = RoundedCornerShape(4.dp)),
         contentScale =  ContentScale.Crop
     )
