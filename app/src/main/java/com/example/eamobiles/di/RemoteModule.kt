@@ -1,5 +1,6 @@
 package com.example.eamobiles.di
 
+import com.example.eamobiles.data.remote.AnimeService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RemoteModule {
-    private const val API_BASE_URL ="";
+    private const val API_BASE_URL ="https://anime-facts-rest-api.herokuapp.com/"
 
     @Provides
     @Singleton
@@ -22,9 +23,10 @@ object RemoteModule {
             .build()
     }
 
-    //TODO  @Provides
-    //    @Singleton
-    //    fun provideHeroService(retrofit: Retrofit): HeroService {
-    //        return retrofit.create(HeroService::class.java)
-    //    }
+    @Provides
+    @Singleton
+    fun provideAnimeService(retrofit: Retrofit): AnimeService {
+        println(API_BASE_URL)
+         return retrofit.create(AnimeService::class.java)
+    }
 }
