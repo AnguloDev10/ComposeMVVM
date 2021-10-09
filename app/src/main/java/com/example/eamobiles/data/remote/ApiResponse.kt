@@ -1,5 +1,8 @@
 package com.example.eamobiles.data.remote
 
-class ApiResponse(
+import com.example.eamobiles.data.model.Anime
 
+class ApiResponse(
+    val successfull: String,
+   val animes: List<Anime>
 )
